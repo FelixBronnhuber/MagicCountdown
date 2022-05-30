@@ -13,7 +13,18 @@
 		0C837ECA281DD5AD00130C44 /* TimerGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C837EB9281DD5A900130C44 /* TimerGridView.swift */; };
 		0C837ECC281DD5AD00130C44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C837EBA281DD5AD00130C44 /* Assets.xcassets */; };
 		0C8880252833F5FF00A3637C /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8880242833F5FF00A3637C /* TimerView.swift */; };
+		0C98A54D283EB4210021871F /* MagicCountdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C98A54C283EB4210021871F /* MagicCountdownTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0C98A54E283EB4210021871F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0C837EB3281DD5A900130C44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0C837EBE281DD5AD00130C44;
+			remoteInfo = "MagicCountdown (iOS)";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0C6248812836807F00C565F9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -25,10 +36,19 @@
 		0C837EC7281DD5AD00130C44 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		0C837ED6281DDFD800130C44 /* MagicCountdown--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MagicCountdown--iOS--Info.plist"; sourceTree = "<group>"; };
 		0C8880242833F5FF00A3637C /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		0C98A54A283EB4210021871F /* MagicCountdownTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MagicCountdownTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C98A54C283EB4210021871F /* MagicCountdownTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicCountdownTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0C837EBC281DD5AD00130C44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C98A547283EB4210021871F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,6 +64,7 @@
 				0C837ED6281DDFD800130C44 /* MagicCountdown--iOS--Info.plist */,
 				0C837EB7281DD5A900130C44 /* Shared */,
 				0C837EC6281DD5AD00130C44 /* macOS */,
+				0C98A54B283EB4210021871F /* MagicCountdownTests */,
 				0C837EC0281DD5AD00130C44 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -65,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				0C837EBF281DD5AD00130C44 /* MagicCountdown.app */,
+				0C98A54A283EB4210021871F /* MagicCountdownTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +97,14 @@
 				0C837EC7281DD5AD00130C44 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		0C98A54B283EB4210021871F /* MagicCountdownTests */ = {
+			isa = PBXGroup;
+			children = (
+				0C98A54C283EB4210021871F /* MagicCountdownTests.swift */,
+			);
+			path = MagicCountdownTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -97,6 +127,24 @@
 			productReference = 0C837EBF281DD5AD00130C44 /* MagicCountdown.app */;
 			productType = "com.apple.product-type.application";
 		};
+		0C98A549283EB4210021871F /* MagicCountdownTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C98A552283EB4210021871F /* Build configuration list for PBXNativeTarget "MagicCountdownTests" */;
+			buildPhases = (
+				0C98A546283EB4210021871F /* Sources */,
+				0C98A547283EB4210021871F /* Frameworks */,
+				0C98A548283EB4210021871F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0C98A54F283EB4210021871F /* PBXTargetDependency */,
+			);
+			name = MagicCountdownTests;
+			productName = MagicCountdownTests;
+			productReference = 0C98A54A283EB4210021871F /* MagicCountdownTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -104,11 +152,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1330;
+				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
 					0C837EBE281DD5AD00130C44 = {
 						CreatedOnToolsVersion = 13.3.1;
+					};
+					0C98A549283EB4210021871F = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = 0C837EBE281DD5AD00130C44;
 					};
 				};
 			};
@@ -126,6 +178,7 @@
 			projectRoot = "";
 			targets = (
 				0C837EBE281DD5AD00130C44 /* MagicCountdown (iOS) */,
+				0C98A549283EB4210021871F /* MagicCountdownTests */,
 			);
 		};
 /* End PBXProject section */
@@ -136,6 +189,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C837ECC281DD5AD00130C44 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C98A548283EB4210021871F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +214,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0C98A546283EB4210021871F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C98A54D283EB4210021871F /* MagicCountdownTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0C98A54F283EB4210021871F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0C837EBE281DD5AD00130C44 /* MagicCountdown (iOS) */;
+			targetProxy = 0C98A54E283EB4210021871F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0C837ECE281DD5AD00130C44 /* Debug */ = {
@@ -337,6 +413,47 @@
 			};
 			name = Release;
 		};
+		0C98A550283EB4210021871F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5X279SUZ5U;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.felix.bronnhuber.MagicCountdownTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicCountdown.app/MagicCountdown";
+			};
+			name = Debug;
+		};
+		0C98A551283EB4210021871F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5X279SUZ5U;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.felix.bronnhuber.MagicCountdownTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MagicCountdown.app/MagicCountdown";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -354,6 +471,15 @@
 			buildConfigurations = (
 				0C837ED1281DD5AD00130C44 /* Debug */,
 				0C837ED2281DD5AD00130C44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C98A552283EB4210021871F /* Build configuration list for PBXNativeTarget "MagicCountdownTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C98A550283EB4210021871F /* Debug */,
+				0C98A551283EB4210021871F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
