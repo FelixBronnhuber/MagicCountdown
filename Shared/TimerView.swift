@@ -34,6 +34,7 @@ struct TimerView: View {
                         .font(.monospacedDigit(
                             .system(size: vm.getFontSize(for: gp, scale: 0.4))
                         )())
+                        .minimumScaleFactor(0.1)
                         .foregroundColor(
                             vm.getTextColor()
                         )
