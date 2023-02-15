@@ -102,7 +102,9 @@ extension MainView {
                 numberOfTimers: self.settingsViewModel.selectedCount,
                 seconds: self.settingsViewModel.selectedMinutes * 60,
                 isIncrementOnTap: self.settingsViewModel.isIncrementOnTap,
-                selectedIncrementSeconds: self.settingsViewModel.selectedIncrementSeconds
+                selectedIncrementSeconds: self.settingsViewModel.selectedIncrementSeconds,
+                showsHealth: self.settingsViewModel.showsHealth,
+                healthPoints: self.settingsViewModel.healthPoints
             )
         }
         

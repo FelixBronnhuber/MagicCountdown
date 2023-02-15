@@ -16,7 +16,9 @@ class MagicCountdownTests: XCTestCase {
         numberOfTimers: 10,
         seconds: 100,
         isIncrementOnTap: false,
-        selectedIncrementSeconds: 100
+        selectedIncrementSeconds: 100,
+        showsHealth: false,
+        healthPoints: 0
     )
     var timerViewModelsNoIncrement: [TimerView.TimerViewModel] = []
     
@@ -25,7 +27,9 @@ class MagicCountdownTests: XCTestCase {
         numberOfTimers: 10,
         seconds: 100,
         isIncrementOnTap: true,
-        selectedIncrementSeconds: 77
+        selectedIncrementSeconds: 77,
+        showsHealth: false,
+        healthPoints: 0
     )
     var timerViewModelsIncrement: [TimerView.TimerViewModel] = []
     
@@ -39,7 +43,9 @@ class MagicCountdownTests: XCTestCase {
                     seconds: 0,
                     isIncrementOnTap: false,
                     selectedIncrementSeconds: 77,
-                    timerGridViewModel: self.timerGridViewModelNoIncrement
+                    timerGridViewModel: self.timerGridViewModelNoIncrement,
+                    showsHealth: false,
+                    healthPoints: 0
                 )
             )
             
@@ -50,7 +56,9 @@ class MagicCountdownTests: XCTestCase {
                     seconds: 0,
                     isIncrementOnTap: true,
                     selectedIncrementSeconds: 77,
-                    timerGridViewModel: self.timerGridViewModelIncrement
+                    timerGridViewModel: self.timerGridViewModelIncrement,
+                    showsHealth: false,
+                    healthPoints: 0
                 )
             )
             

@@ -138,7 +138,9 @@ struct ContentView_Preview: PreviewProvider {
             numberOfTimers: 4,
             seconds: 15*60,
             isIncrementOnTap: true,
-            selectedIncrementSeconds: 30
+            selectedIncrementSeconds: 30,
+            showsHealth: true,
+            healthPoints: 40
         ))
         .preferredColorScheme(.dark)
         .previewDevice("iPhone 13 Pro Max")
@@ -148,7 +150,9 @@ struct ContentView_Preview: PreviewProvider {
             numberOfTimers: 4,
             seconds: 15*60,
             isIncrementOnTap: true,
-            selectedIncrementSeconds: 30
+            selectedIncrementSeconds: 30,
+            showsHealth: true,
+            healthPoints: 40
         ))
         .preferredColorScheme(.dark)
         .previewDevice("iPhone 13")
@@ -158,17 +162,21 @@ struct ContentView_Preview: PreviewProvider {
             numberOfTimers: 4,
             seconds: 15*60,
             isIncrementOnTap: true,
-            selectedIncrementSeconds: 30
+            selectedIncrementSeconds: 30,
+            showsHealth: true,
+            healthPoints: 40
         ))
         .preferredColorScheme(.dark)
         .previewDevice("iPhone 13 Mini")
         .previewInterfaceOrientation(.landscapeRight)
         
         TimerGridView(vm: TimerGridView.TimerGirdViewModel(
-            numberOfTimers: 4,
+            numberOfTimers: 8,
             seconds: 15*60,
             isIncrementOnTap: true,
-            selectedIncrementSeconds: 30
+            selectedIncrementSeconds: 30,
+            showsHealth: true,
+            healthPoints: 40
         ))
         .preferredColorScheme(.dark)
         .previewDevice("iPhone SE")
@@ -195,6 +203,12 @@ extension TimerGridView {
         /// The amount of seconds that are incremented if `isIncrementOnTap` is set to true.
         var selectedIncrementSeconds: Int = 10
         
+        /// Whether the timers should show the health bar or not
+        var showsHealth: Bool
+        
+        /// The health points in the beginning
+        var healthPoints: Int
+        
         /// Initializes the view models for the `TimerView`s.
         fileprivate func initTimerViewModels(_ numberOfTimers: Int, _ seconds: Int) {
             for id in (0..<numberOfTimers) {
@@ -204,7 +218,9 @@ extension TimerGridView {
                         seconds: seconds,
                         isIncrementOnTap: self.isIncrementOnTap,
                         selectedIncrementSeconds: self.selectedIncrementSeconds,
-                        timerGridViewModel: self
+                        timerGridViewModel: self,
+                        showsHealth: self.showsHealth,
+                        healthPoints: self.healthPoints
                     )
                 )
             }
@@ -224,11 +240,15 @@ extension TimerGridView {
             numberOfTimers: Int,
             seconds: Int,
             isIncrementOnTap: Bool,
-            selectedIncrementSeconds: Int
+            selectedIncrementSeconds: Int,
+            showsHealth: Bool,
+            healthPoints: Int
         ) {
             self.numberOfTimers = numberOfTimers
             self.isIncrementOnTap = isIncrementOnTap
             self.selectedIncrementSeconds = selectedIncrementSeconds
+            self.showsHealth = showsHealth
+            self.healthPoints = healthPoints
             
             initTimerViewModels(numberOfTimers, seconds)
         }

@@ -28,22 +28,64 @@ struct TimerView: View {
                             vm.getBackgroundColor()
                         )
                     
-                    /// Displays the time as text
-                    Text(vm.getTimestamp())
-                        .lineLimit(1)
-                        .font(.monospacedDigit(
-                            .system(size: vm.getFontSize(for: gp, scale: 0.4))
-                        )())
-                        .minimumScaleFactor(0.1)
-                        .foregroundColor(
-                            vm.getTextColor()
-                        )
-                        .padding(1.0)
+                    VStack {
+                        /// Displays the time as text
+                        Text(vm.getTimestamp())
+                            .lineLimit(1)
+                            .font(.monospacedDigit(
+                                .system(size: vm.getFontSize(for: gp, scale: 1.0))
+                            )())
+                            .minimumScaleFactor(0.1)
+                            .foregroundColor(
+                                vm.getTextColor()
+                            )
+                        
+                        if self.vm.showsHealth {
+                            Spacer()
+                            
+                            HStack(spacing: 5.0) {
+                                Label("\(self.vm.healthPoints)", systemImage: "heart")
+                                    .foregroundColor(vm.getTextColor())
+                                    .font(.monospacedDigit(
+                                        .system(size: vm.getFontSize(for: gp, scale: 0.15))
+                                    )())
+                                    .minimumScaleFactor(0.1)
+                                    .labelStyle(.automatic)
+                                    .lineLimit(1)
+                                
+                                Spacer()
+                                
+                                Button(action: {
+                                    if self.vm.healthPoints > 0 {
+                                        self.vm.healthPoints -= 1
+                                    }
+                                }, label: {
+                                    Image(systemName: "minus.circle")
+                                        .font(.system(size: vm.getFontSize(for: gp, scale: 0.15)))
+                                        .minimumScaleFactor(0.1)
+                                        .foregroundColor(vm.getTextColor())
+                                })
+                                
+                                Button(action: {
+                                    if self.vm.healthPoints < 1000 {
+                                        self.vm.healthPoints += 1
+                                    }
+                                }, label: {
+                                    Image(systemName: "plus.circle")
+                                        .font(.system(size: vm.getFontSize(for: gp, scale: 0.15)))
+                                        .minimumScaleFactor(0.1)
+                                        .foregroundColor(vm.getTextColor())
+                                })
+                            }
+                        }
+                        
+                    }
+                    .padding(10.0)
                     
                 }
-                //.contextMenu {
-                //    contextMenu
-                //}
+                .contextMenu {
+                    //contextMenu
+                }
                 
                 colorAccent
             }
@@ -98,8 +140,12 @@ struct TimerView_Previews: PreviewProvider {
                 numberOfTimers: 8,
                 seconds: 15*60,
                 isIncrementOnTap: true,
-                selectedIncrementSeconds: 30
-            )
+                selectedIncrementSeconds: 30,
+                showsHealth: true,
+                healthPoints: 40
+            ),
+            showsHealth: true,
+            healthPoints: 40
         ))
         .frame(width: 260, height: 200)
         .preferredColorScheme(.dark)
@@ -133,6 +179,10 @@ extension TimerView {
         /// The amount of incremented seconds if `isIncrementedOnTap` is set.
         var selectedIncrementSeconds: Int
         
+        @Published var healthPoints: Int
+        
+        var showsHealth: Bool
+        
         /// The order in which the accentcolors are assigned.
         private var _colors: [Color] = [
             .blue, .green, .red, .yellow, .teal, .orange, .pink, .brown, .purple, .indigo
@@ -155,13 +205,17 @@ extension TimerView {
             seconds: Int,
             isIncrementOnTap: Bool,
             selectedIncrementSeconds: Int,
-            timerGridViewModel: TimerGridView.TimerGirdViewModel
+            timerGridViewModel: TimerGridView.TimerGirdViewModel,
+            showsHealth: Bool,
+            healthPoints: Int
         ) {
             self.id = id
             self.seconds = seconds
             self.isIncrementOnTap = isIncrementOnTap
             self.selectedIncrementSeconds = selectedIncrementSeconds
             self.timerGridViewModel = timerGridViewModel
+            self.showsHealth = showsHealth
+            self.healthPoints = healthPoints
         }
         
         

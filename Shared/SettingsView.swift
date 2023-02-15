@@ -34,6 +34,7 @@ struct SettingsView: View {
                     
                     timeIncrementPicker
                     
+                    healthBarPicker
                 }
                 .cornerRadius(10.0)
                 
@@ -159,6 +160,34 @@ struct SettingsView: View {
         
     }
     
+    /// Lets the user configure whether they want a health bar or not and the starting health points
+    var healthBarPicker: some View {
+        
+        GroupBox(content: {
+            
+            /// Sets the `isIncrementOnTap`
+            Toggle(isOn: self.$vm.showsHealth.animation(.easeIn), label: {
+                VStack(alignment: .leading) {
+                    Text("Show health points")
+                }
+            })
+            .tint(.accentColor)
+            
+            /// Selector for the amount of seconds to increment
+            /// Only shown if the `isIncrementOnTap` toggle is set.
+            if vm.showsHealth {
+                Group {
+                    Stepper(value: self.$vm.healthPoints, in: (1...10000)) {
+                        Text("Starting health points: \(vm.healthPoints)")
+                    }
+                }
+            }
+        }, label: {
+            Label("Health points", systemImage: "heart.circle")
+        })
+        
+    }
+    
 }
 
 #if(DEBUG)
@@ -167,7 +196,7 @@ struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView(vm: SettingsView.SettingsViewModel())
             .preferredColorScheme(.dark)
-            .previewDevice("iPhone 11")
+            .previewDevice("iPhone 13")
             .previewInterfaceOrientation(.landscapeLeft)
     }
 }
@@ -190,6 +219,12 @@ extension SettingsView {
         
         /// Default amount of incremented seconds / starting position of the picker
         @Published var selectedIncrementSeconds: Int = 30
+        
+        /// Whether the timers should show the health bar or not
+        @Published var showsHealth: Bool = false
+        
+        /// The health points in the beginning
+        @Published var healthPoints: Int = 40
         
         
         /// Initializes the `SettingsViewModel` and overrides the default values.
